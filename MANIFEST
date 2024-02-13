@@ -1,0 +1,6 @@
+Changes
+Makefile.PL
+MANIFEST
+README.md
+t/Net-EANSearch.t
+lib/Net/EANSearch.pm
