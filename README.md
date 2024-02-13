@@ -1,4 +1,4 @@
-# EANSearch
+# Net::EANSearch
 
 A Perl module for EAN and ISBN lookup and validation using the API on https://www.ean-search.org
 
@@ -40,7 +40,7 @@ use strict;
 use warnings;
 
 use lib '.';
-use EANSearch;
+use Net::EANSearch;
 
 my $API_TOKEN = $ENV{EAN_SEARCH_API_TOKEN};
 
