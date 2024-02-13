@@ -6,22 +6,24 @@ A Perl module for EAN and ISBN lookup and validation using the API on https://ww
 
 To install this module type the following:
 
+```sh
    perl Makefile.PL
    make
    make test
    make install
+```
 
 # DEPENDENCIES
 
-This module requires these other modules and libraries:
+This module requires these other Perl modules:
 
-WWW::Curl::Easy
-JSON
-URL::Encode
-MIME::Base64
+- WWW::Curl::Easy
+- JSON
+- URL::Encode
+- MIME::Base64
 
 
-COPYRIGHT AND LICENCE
+# COPYRIGHT AND LICENCE
 
 Put the correct copyright and licence information here.
 
