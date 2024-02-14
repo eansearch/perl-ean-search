@@ -216,7 +216,7 @@ If there are many results, you may need to page through the results to retrieve 
 
 =item productSearch($name [, $language, $page])
 
-Search a certain product category for a product name or keyword. See appendix C in the API manual for category numbers.
+Search the database by product name or keyword.
 
 Optionally, you can specify a preferred language for the results.
 
@@ -224,7 +224,7 @@ If there are many results, you may need to page through the results to retrieve 
 
 =item categorySearch($category, $name [, $language, $page])
 
-Search the database by product name or keyword.
+Search a certain product category for a product name or keyword. See appendix C in the API manual for category numbers.
 
 Optionally, you can specify a preferred language for the results.
 
