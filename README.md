@@ -4,7 +4,13 @@ A Perl module for EAN and ISBN lookup and validation using the API on https://ww
 
 # INSTALLATION
 
-To install this module type the following:
+Install from CPAN
+
+```sh
+cpan -i Net::EANSearch
+```
+
+Or do a manual install by typing the following:
 
 ```sh
    perl Makefile.PL
@@ -25,8 +31,6 @@ This module requires these other Perl modules:
 
 # COPYRIGHT AND LICENCE
 
-Put the correct copyright and licence information here.
-
 Copyright (C) 2024 by Relaxed Communications GmbH (info@relaxedcommunications.com)
 
 This library is free software; you can redistribute it and/or modify
@@ -34,12 +38,13 @@ it under the same terms as Perl itself, either Perl version 5.30.0 or,
 at your option, any later version of Perl 5 you may have available.
 
 
+# EXAMPLE
+
 ```perl
 #!/usr/bin/perl
 use strict;
 use warnings;
 
-use lib '.';
 use Net::EANSearch;
 
 my $API_TOKEN = $ENV{EAN_SEARCH_API_TOKEN};
