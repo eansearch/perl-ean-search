@@ -60,7 +60,7 @@ sub new {
 	my $token = shift;
 
 	my $ua = LWP::UserAgent->new();
-	$ua->timeout(10);
+	$ua->timeout(30);
 
 	my $self = bless { base_uri => $BASE_URI . $token, ua => $ua }, $class;
 
