@@ -30,7 +30,7 @@ our @EXPORT = qw(
 	
 );
 
-our $VERSION = '1.02';
+our $VERSION = '1.03';
 
 our $ALL_LANGUAGES = 99;
 our $ENGLISH = 1;
@@ -179,7 +179,9 @@ Net::EANSearch - Perl module for EAN and ISBN lookup and validation using the AP
 
   my $eansearch = Net::EANSearch->new($API_TOKEN);
 
-  my $product = $eansearch->barcodeLookup(5099750442227);
+  my $product = $eansearch->barcodeLookup('5099750442227');
+
+  my $book = $eansearch->isbnLookup('1119578884');
 
 =head1 DESCRIPTION
 
@@ -202,7 +204,7 @@ Optionally, you can specify a preferred language for the result. See appendix B 
 
 =item isbnLookup($isbn)
 
-Search for an ISBN number (ISBN-10 or ISBN-13 format).
+Lookup book data for an ISBN number (ISBN-10 or ISBN-13 format).
 
 =item barcodePrefixSearch($prefix [, $language, $page])
 
@@ -238,7 +240,7 @@ Generate a PNG image with the barcode for the EAN number.
 
 =item verifyChecksum($ean)
 
-Verify if the checksum in the EAN numnber is valid.
+Verify if the checksum in the EAN number is valid.
 
 =back
 
