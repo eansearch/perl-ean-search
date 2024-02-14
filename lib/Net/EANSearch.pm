@@ -177,7 +177,7 @@ Net::EANSearch - Perl module for EAN and ISBN lookup and validation using the AP
 
   use Net::EANSearch;
 
-  my $eansearch = EANSearch->new($API_TOKEN);
+  my $eansearch = Net::EANSearch->new($API_TOKEN);
 
   my $product = $eansearch->barcodeLookup(5099750442227);
 
