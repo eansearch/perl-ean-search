@@ -1,6 +1,5 @@
 package Net::EANSearch;
 
-use 5.030000;
 use strict;
 use warnings;
 
