@@ -3,25 +3,23 @@
 A Perl module for EAN and ISBN lookup and validation using the API on https://www.ean-search.org
 
 You can
-- lookup an EAN
-- lookup an ISBN (ISBN-10 or ISBN-13)
+- lookup EAN barcodes
+- lookup ISBNs (ISBN-10 or ISBN-13)
 - search for products by name or keyword (eg. to find the EAN)
 - search a product category by name or key word
 - search for all EANs with a certain prefix
 - verify if an EAN or ISBN-13 is valid
-- lookup the country wehere an EAN was issued
+- lookup the country where an EAN was issued
 - generate PNG barcode images
 
 # INSTALLATION
 
 Install from CPAN
-
 ```sh
 cpan -i Net::EANSearch
 ```
 
 Or do a manual install by typing the following:
-
 ```sh
    perl Makefile.PL
    make
@@ -33,7 +31,7 @@ Or do a manual install by typing the following:
 
 This module requires these other Perl modules:
 
-- WWW::Curl::Easy
+- LWP
 - JSON
 - URL::Encode
 - MIME::Base64

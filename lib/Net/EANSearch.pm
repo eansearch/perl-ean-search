@@ -29,7 +29,7 @@ our @EXPORT = qw(
 	
 );
 
-our $VERSION = '1.04';
+our $VERSION = '1.05';
 
 our $ALL_LANGUAGES = 99;
 our $ENGLISH = 1;
