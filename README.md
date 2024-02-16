@@ -1,6 +1,6 @@
 # Net::EANSearch
 
-A Perl module for EAN and ISBN lookup and validation using the API on https://www.ean-search.org
+A Perl module for EAN and ISBN lookup and validation using the EAN / ISBN API on https://www.ean-search.org
 
 You can
 - lookup EAN barcodes
@@ -35,6 +35,7 @@ This module requires these other Perl modules:
 - JSON
 - URL::Encode
 - MIME::Base64
+- Test::NoWarnings
 
 
 # COPYRIGHT AND LICENCE
