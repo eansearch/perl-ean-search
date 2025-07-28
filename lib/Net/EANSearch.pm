@@ -29,7 +29,7 @@ our @EXPORT = qw(
 	
 );
 
-our $VERSION = '1.08';
+our $VERSION = '1.09';
 
 our $ALL_LANGUAGES = 99;
 our $ENGLISH = 1;
@@ -233,7 +233,7 @@ Search for all EANs starting with a certain prefix.
 
 Optionally, you can specify a preferred language for the results.
 
-If there are many results, you may need to page through the results to retrieve them all. Page numbers start at 1.
+If there are many results, you may need to page through the results to retrieve them all. Page numbers start at 0.
 
 =item productSearch($name [, $language, $page])
 
@@ -242,7 +242,7 @@ If you get no results, you might want to try a similarProductSearch().
 
 Optionally, you can specify a preferred language for the results.
 
-If there are many results, you may need to page through the results to retrieve them all. Page numbers start at 1.
+If there are many results, you may need to page through the results to retrieve them all. Page numbers start at 0.
 
 =item similarProductSearch($name [, $language, $page])
 
@@ -251,7 +251,7 @@ You probably want to try an exact search (productSearch()) before you do a simil
 
 Optionally, you can specify a preferred language for the results.
 
-If there are many results, you may need to page through the results to retrieve them all. Page numbers start at 1.
+If there are many results, you may need to page through the results to retrieve them all. Page numbers start at 0.
 
 =item categorySearch($category, $name [, $language, $page])
 
@@ -259,7 +259,7 @@ Search a certain product category for a product name or keyword. See appendix C 
 
 Optionally, you can specify a preferred language for the results.
 
-If there are many results, you may need to page through the results to retrieve them all. Page numbers start at 1.
+If there are many results, you may need to page through the results to retrieve them all. Page numbers start at 0.
 
 =item issuingCountry($ean)
 
