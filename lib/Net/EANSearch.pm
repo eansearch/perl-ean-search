@@ -29,7 +29,7 @@ our @EXPORT = qw(
 	
 );
 
-our $VERSION = '1.07';
+our $VERSION = '1.08';
 
 our $ALL_LANGUAGES = 99;
 our $ENGLISH = 1;
@@ -91,7 +91,7 @@ sub barcodePrefixSearch {
 	my $self = shift;
 	my $prefix = shift;
 	my $lang = shift || 1;
-	my $page = shift || 1;
+	my $page = shift || 0;
 
 	my $json_str = $self->_apiCall($self->{base_uri} . "&op=barcode-prefix-search&page=$page&language=$lang&prefix=$prefix");
 	my $json = decode_json($json_str);
@@ -102,7 +102,7 @@ sub productSearch {
 	my $self = shift;
 	my $kw = shift;
 	my $lang = shift || 1;
-	my $page = shift || 1;
+	my $page = shift || 0;
 
 	my $json_str = $self->_apiCall($self->{base_uri} . "&op=product-search&page=$page&language=$lang&name="
 		. URL::Encode::url_encode_utf8($kw));
@@ -114,7 +114,7 @@ sub similarProductSearch {
 	my $self = shift;
 	my $kw = shift;
 	my $lang = shift || 1;
-	my $page = shift || 1;
+	my $page = shift || 0;
 
 	my $json_str = $self->_apiCall($self->{base_uri} . "&op=similar-product-search&page=$page&language=$lang&name="
 		. URL::Encode::url_encode_utf8($kw));
@@ -127,7 +127,7 @@ sub categorySearch {
 	my $category = shift;
 	my $kw = shift;
 	my $lang = shift || 1;
-	my $page = shift || 1;
+	my $page = shift || 0;
 
 	my $json_str = $self->_apiCall($self->{base_uri} . "&op=category-search&category=$category"
 		. "&page=$page&language=$lang&name=" . URL::Encode::url_encode_utf8($kw));
