@@ -291,7 +291,7 @@ Relaxed Communications GmbH, E<lt>info@relaxedcommunications.comE<gt>
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright 2024 by Relaxed Communications GmbH, E<lt>info@relaxedcommunications.comE<gt>
+Copyright 2025 by Relaxed Communications GmbH, E<lt>info@relaxedcommunications.comE<gt>
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself, either Perl version 5.30.0 or,
