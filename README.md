@@ -53,6 +53,7 @@ at your option, any later version of Perl 5 you may have available.
 #!/usr/bin/perl
 use strict;
 use warnings;
+use MIME::Base64 qw(encode_base64);
 
 use Net::EANSearch;
 
@@ -111,11 +112,20 @@ foreach my $p (@book_list) {
 	print "$p->{ean} is $p->{name}\n";
 }
 
+my $asin = $eansearch->findAsinForEan($ean);
+print "ASIN for EAN $ean is $asin\n" if ($asin);
+my $ean2 = $eansearch->findEanForAsin($asin);
+print "EAN for ASIN $asin is $ean2\n" if ($ean2);
+my $lccn = $eansearch->findLccnForEan($isbn13);
+print "LCCN for EAN $ean is $lccn\n" if ($lccn);
+$isbn13 = $eansearch->findEanForLccn($lccn);
+print "ISBN13 for LCCN $lccn is $isbn13 (there can be multiple different ISBNs!)\n" if ($isbn13);
+
 my $country = $eansearch->issuingCountry($ean);
 print "Issuing country for EAN $ean is $country\n";
 
 my $img = $eansearch->barcodeImage($ean);
-print "Image for EAN $ean in HTML: <img src=\"data:image/png;base64,$img\">\n";
+print "Image for EAN $ean in HTML: <img src=\"data:image/png;base64," . encode_base64($img, '') . "\">\n";
 
 my $ok = $eansearch->verifyChecksum($ean);
 print "EAN $ean is " . ($ok ? 'valid' : 'invalid') . "\n";

@@ -29,7 +29,7 @@ our @EXPORT = qw(
 	
 );
 
-our $VERSION = '1.20';
+our $VERSION = '1.21';
 
 our $ALL_LANGUAGES = 99;
 our $ENGLISH = 1;
@@ -72,7 +72,7 @@ sub barcodeLookup {
 	my $ean = shift;
 	my $lang = shift || 1;
 
-	my $json_str = $self->_apiCall($self->{base_uri} . "&op=barcode-lookup&ean=$ean&language=$lang");
+	my $json_str = $self->_apiCall($self->{base_uri} . "&op=asin-for-ean-lookup&ean=$ean&language=$lang");
 	my $json = decode_json($json_str);
 	return $json->[0];
 }
@@ -85,6 +85,42 @@ sub isbnLookup {
 	my $json_str = $self->_apiCall($self->{base_uri} . "&op=barcode-lookup&isbn=$isbn&language=$lang");
 	my $json = decode_json($json_str);
 	return $json->[0];
+}
+
+sub findAsinForEan {
+	my $self = shift;
+	my $ean = shift;
+
+	my $json_str = $self->_apiCall($self->{base_uri} . "&op=asin-for-ean-lookup&ean=$ean");
+	my $json = decode_json($json_str);
+	return defined($json->[0]) ? $json->[0]->{asin} : undef;
+}
+
+sub findEanForAsin {
+	my $self = shift;
+	my $asin = shift;
+
+	my $json_str = $self->_apiCall($self->{base_uri} . "&op=ean-for-asin-lookup&asin=$asin");
+	my $json = decode_json($json_str);
+	return defined($json->[0]) ? $json->[0]->{ean} : undef;
+}
+
+sub findLccnForEan {
+	my $self = shift;
+	my $ean = shift;
+
+	my $json_str = $self->_apiCall($self->{base_uri} . "&op=lccn-for-ean-lookup&ean=$ean");
+	my $json = decode_json($json_str);
+	return defined($json->[0]) ? $json->[0]->{lccn} : undef;
+}
+
+sub findEanForLccn {
+	my $self = shift;
+	my $lccn = shift;
+
+	my $json_str = $self->_apiCall($self->{base_uri} . "&op=ean-for-lccn-lookup&lccn=$lccn");
+	my $json = decode_json($json_str);
+	return defined($json->[0]) ? $json->[0]->{ean} : undef;
 }
 
 sub barcodePrefixSearch {
