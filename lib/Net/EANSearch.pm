@@ -29,7 +29,7 @@ our @EXPORT = qw(
 	
 );
 
-our $VERSION = '1.21';
+our $VERSION = '1.22';
 
 our $ALL_LANGUAGES = 99;
 our $ENGLISH = 1;
@@ -82,6 +82,10 @@ sub isbnLookup {
 	my $isbn = shift;
 	my $lang = shift || 1;
 
+	$isbn =~ s/[^0-9X]//g; # remove any non-numeric characters (and X for ISBN-10)
+	if (length($isbn) == 13) {
+		return $self->barcodeLookup($isbn, $lang); # handle ISBN-13 as EAN
+	}
 	my $json_str = $self->_apiCall($self->{base_uri} . "&op=barcode-lookup&isbn=$isbn&language=$lang");
 	my $json = decode_json($json_str);
 	return $json->[0];
@@ -250,9 +254,12 @@ Net::EANSearch - Perl module for EAN and ISBN lookup and validation using the AP
 
   my $book = $eansearch->isbnLookup('1119578884');
 
+  my @product_list = $eansearch->productSearch('Bananaboat');
+
+
 =head1 DESCRIPTION
 
-C<Net::EANSearch> is a class used to search the ean-search.org barcode database by EAN, ISBN or keyword.
+C<Net::EANSearch> is a class used to search the ean-search.org barcode database by EAN, GTIN, UPC, ISBN or keyword.
 
 =head2 METHODS
 
@@ -272,6 +279,23 @@ Optionally, you can specify a preferred language for the result. See appendix B 
 =item isbnLookup($isbn)
 
 Lookup book data for an ISBN number (ISBN-10 or ISBN-13 format).
+
+=item findAsinForEan($ean)
+
+Lookup the Amazon ASIN for a given EAN number.
+
+=item findEanForAsin($asin)
+
+Lookup the EAN number for a given Amazon ASIN.
+
+=item findLccnForEan($ean)
+
+Lookup the Library of Congress Control Number (LCCN) for a given EAN / ISBN-13 number.
+
+=item findEanForLccn($lccn)
+
+Lookup the EAN number for a given Library of Congress Control Number (LCCN).
+Note that there can be multiple different EANs for a given LCCN, so this function will return the first one found.
 
 =item barcodePrefixSearch($prefix [, $language, $page])
 
