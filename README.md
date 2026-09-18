@@ -5,6 +5,7 @@ A Perl module for EAN and ISBN lookup and validation using the EAN / ISBN API on
 You can
 - lookup EAN barcodes
 - lookup ISBNs (ISBN-10 or ISBN-13)
+- lookup ASIN and LCCN codes
 - search for products by name or keyword (eg. to find the EAN)
 - search a product category by name or key word
 - search for all EANs with a certain prefix
