@@ -1,5 +1,8 @@
 Revision history for Perl extension Net::EANSearch.
 
+1.23  Fri Sep 19 19:00:00 2026
+	- bugfix release
+
 1.21  Fri Sep 18 08:30:00 2026
 	- add lookup for ASINs and LCCNs
 
